@@ -1,13 +1,13 @@
 import java.util.Scanner;
-
+import java.lang.Math.*;
 public class PaintCalc2
 {
 	public static void main(String[] args)
 	{
 		Scanner input = new Scanner(System.in);
-		int length;
-		int width;
-		int height;
+		double length;
+		double width;
+		double height;
 		int doors;
 		int windows;
 		final int FEET_PER_GALLON = 300;
@@ -15,13 +15,13 @@ public class PaintCalc2
 		final int QUART_PER_GALLON = 4;
 		//Gets Length of wall
 		System.out.println("Enter the length: ");
-		length = input.nextInt();
+		length = input.nextDouble();
 		//Gets width of wall
 		System.out.println("Enter the width: ");
-		width = input.nextInt();
+		width = input.nextDouble();
 		//Gets height of wall
 		System.out.println("Enter the height: ");
-		height = input.nextInt();
+		height = input.nextDouble();
 		//Asks # of Doors
 		System.out.println("Enter the number of doors: ");
 		doors = input.nextInt();
@@ -29,11 +29,11 @@ public class PaintCalc2
 		System.out.println("Enter the number of windows: ");
 		windows = input.nextInt();
 		// Calculates and prints square feet
-		int doorSpace = doors * 21;
-		int windowSpace = windows * 12;
-		int wallSpace1 = length * height * 2;
-		int wallSpace2 = length * width * 2;
-		int totalSpace = wallSpace1 + wallSpace2 - doorSpace - windowSpace;
+		double doorSpace = doors * 21;
+		double windowSpace = windows * 12;
+		double wallSpace1 = length * height * 2;
+		double wallSpace2 = height * width * 2;
+		double totalSpace = wallSpace1 + wallSpace2 - doorSpace - windowSpace;
         System.out.println("Total Square feet: " + totalSpace);
         if (totalSpace < 300) {
 			System.out.println("if gallons only: 1 gallon");
@@ -41,16 +41,18 @@ public class PaintCalc2
 		else {
 			System.out.println("if gallons only: " + (totalSpace / FEET_PER_GALLON));
 		}
-		int quarts = totalSpace / FEET_PER_QUART;
-		int quartGallons = 0;
-		quartGallons += quarts / QUART_PER_GALLON;
-		int leftoverQuarts = 0;
-		leftoverQuarts = quarts % QUART_PER_GALLON;
-		if (leftoverQuarts > 0) {
-			System.out.println("if quarts are available: " + quartGallons + " gallons " + leftoverQuarts + " quarts");
+		double totalGal1 = totalSpace / FEET_PER_GALLON;
+		double totalGal = Math.ceil(totalGal1);
+		double leftoverSpace1 = totalSpace / FEET_PER_QUART;
+		double leftoverSpace = Math.ceil(leftoverSpace1);
+		if (totalSpace % FEET_PER_QUART != 0) {
+			leftoverSpace++;
+		}
+		if (leftoverSpace > 0) {
+			System.out.println("if quarts are available: " + totalGal + " gallons " + leftoverSpace + " quarts");
 		}
 		else {
-			System.out.println("");
+			System.out.println("if quarts are available: " + leftoverSpace + " quarts");
 		}
 	}
 
