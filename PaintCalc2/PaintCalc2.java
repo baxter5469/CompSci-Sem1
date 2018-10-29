@@ -35,21 +35,23 @@ public class PaintCalc2
 		double wallSpace2 = height * width * 2;
 		double totalSpace = wallSpace1 + wallSpace2 - doorSpace - windowSpace;
         System.out.println("Total Square feet: " + totalSpace);
-        if (totalSpace < 300) {
+		double totalGal1 = totalSpace / FEET_PER_GALLON;
+		double totalGal = Math.ceil(totalGal1);
+		if (totalSpace < 300) {
 			System.out.println("if gallons only: 1 gallon");
 		}
 		else {
-			System.out.println("if gallons only: " + (totalSpace / FEET_PER_GALLON));
+			System.out.println("if gallons only: " + (totalGal));
 		}
-		double totalGal1 = totalSpace / FEET_PER_GALLON;
-		double totalGal = Math.ceil(totalGal1);
 		double leftoverSpace1 = totalSpace / FEET_PER_QUART;
-		double leftoverSpace = Math.ceil(leftoverSpace1);
-		if (totalSpace % FEET_PER_QUART != 0) {
-			leftoverSpace++;
+		int leftoverSpace = (int)Math.ceil(leftoverSpace1);
+		int finalQuarts = leftoverSpace % 4;
+		int finalGals = leftoverSpace / 4;
+		if (finalGals > 1) {
+			System.out.println("if quarts are available: " + finalGals + " gallons " + finalQuarts + " quarts");
 		}
-		if (leftoverSpace > 0) {
-			System.out.println("if quarts are available: " + totalGal + " gallons " + leftoverSpace + " quarts");
+		if (finalGals > 0 && finalGals <= 1) {
+			System.out.println("if quarts are available: " + finalGals + " gallon " + finalQuarts + " quarts");
 		}
 		else {
 			System.out.println("if quarts are available: " + leftoverSpace + " quarts");
