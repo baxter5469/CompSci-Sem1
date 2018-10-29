@@ -24,8 +24,8 @@ public class FindDistance
         System.out.print("Enter the y coordinate: ");
         errandTwoY = input.nextInt();
         System.out.println(" ");
-        errandOneDist = Math.sqrt(Math.pow((errandTwoX - houseX),2)+Math.pow((errandTwoY - houseY),2));
-        errandTwoDist = Math.sqrt(Math.pow((errandOneX - houseX),2)+Math.pow((errandOneY - houseY),2));
+        errandOneDist = Math.sqrt(Math.pow((errandOneX - houseX),2)+Math.pow((errandOneY - houseY),2));
+        errandTwoDist = Math.sqrt(Math.pow((errandTwoX - houseX),2)+Math.pow((errandTwoY - houseY),2));
         System.out.println("Errand 1 distance: " + errandOneDist);
         System.out.println("Errand 2 distance: " + errandTwoDist);
         if (Math.abs(errandOneDist - errandTwoDist) < 0.5) {
