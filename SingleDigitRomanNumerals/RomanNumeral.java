@@ -8,32 +8,29 @@ public class RomanNumeral
         int romanInt;
         System.out.print("Enter a positive single digit integer: ");
         romanInt = input.nextInt();
-        if (romanInt % 100 == 1) {
-            System.out.print(romNum + " I");
+        String oneLRom;
+        switch (romanInt) {
+            case 1: oneLRom = "I";
+                    break;
+            case 2: oneLRom = "II";
+                    break;
+            case 3: oneLRom = "III";
+                    break;
+            case 4: oneLRom = "IV";
+                    break;
+            case 5: oneLRom = "V";
+                    break;
+            case 6: oneLRom = "VI";
+                    break;
+            case 7: oneLRom = "VII";
+                    break;
+            case 8: oneLRom = "VIII";
+                    break;
+            case 9: oneLRom = "IX";
+                    break;
+            default: oneLRom = "Invalid positive single digit";
+                    break;
         }
-        if (romanInt % 100 == 2) {
-            System.out.print(romNum + " II");
-        }
-        if (romanInt % 100 == 3) {
-            System.out.print(romNum + " III");
-        }
-        if (romanInt % 100 == 4) {
-            System.out.print(romNum + " IV");
-        }
-        if (romanInt % 100 == 5) {
-            System.out.print(romNum + " V");
-        }
-        if (romanInt % 100 == 6) {
-            System.out.print(romNum + " VI");
-        }
-        if (romanInt % 100 == 7) {
-            System.out.print(romNum + " VII");
-        }
-        if (romanInt % 100 == 8) {
-            System.out.print(romNum + " VIII");
-        }
-        if (romanInt % 100 == 9) {
-            System.out.print(romNum + " IX");
-        }
+        System.out.print("Roman Numeral " + oneLRom);
 	}
 }
