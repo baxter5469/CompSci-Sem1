@@ -53,6 +53,7 @@ public class Theater
             }
         }
         int tempCount = 0;
+        int finalCount = 0;
         int tempSeat = 0;
         int numTicketsSold = 0;
         int ticketTotal = 0;
@@ -60,8 +61,10 @@ public class Theater
         for (int i = 0; i < usrChange; i++){
             System.out.println("Enter the row of your seat choice: ");
             tempCount = input.nextInt();
+            tempCount = 9 - tempCount;
             System.out.println("Enter the seat Number: ");
             tempSeat = input.nextInt();
+            tempSeat = tempSeat - 1;
             tempCheck = x[tempCount][tempSeat];
             if (tempCheck == 0){
                 System.out.println("seat unavailable");
